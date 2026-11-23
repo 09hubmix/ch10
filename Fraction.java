@@ -62,4 +62,16 @@ public class Fraction {
 		
 	
 	}
+	
+	public static int getGCF(int a, int b) {
+    while (a != b) {
+        if (a > b) {
+            a = a - b;
+        } else {
+            b = b - a;
+        }
+    }
+    return a;
+}
+
 }
