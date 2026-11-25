@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Fraction {
 	
 	//instance variable (attribute or fields)
