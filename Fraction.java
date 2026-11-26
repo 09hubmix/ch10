@@ -61,10 +61,28 @@ public class Fraction {
 		int d = b.getDenominator() * b.getDenominator();
 		Fraction answer = new Fraction(n,d);
 		return answer;
-		
-	
 	}
 	
+	public static Fraction divide(Fraction a, Fraction b) {
+		int n = a.getNumerator() * b.getDenominator();
+		int d = a.getDenominator() * b.getNumerator();
+		Fraction answer = new Fraction(n, d);
+		return answer;
+}
+
+	public static Fraction add(Fraction a, Fraction b) {
+		int n = (a.getNumerator() * b.getDenominator()) + (b.getNumerator() * a.getDenominator());
+		int d = a.getDenominator() * b.getDenominator();
+		Fraction answer = new Fraction(n, d);
+		return answer;
+}
+
+	public static Fraction subtract(Fraction a, Fraction b) {
+		int n = (a.getNumerator() * b.getDenominator()) - (b.getNumerator() * a.getDenominator());
+		int d = a.getDenominator() * b.getDenominator();
+		Fraction answer = new Fraction(n, d);
+		return answer;
+}
 	public static int getGCF(int a, int b) {
     while (a != b) {
         if (a > b) {
@@ -72,6 +90,27 @@ public class Fraction {
         } else {
             b = b - a;
         }
+    }
+    return a;
+}
+	private void reduce() {
+    if (numerator == 0) {
+        denominator = 1;
+        return;
+    }
+    if (denominator < 0) {
+        numerator = -numerator;
+        denominator = -denominator;
+    }
+    int gcd = gcd(Math.abs(numerator), Math.abs(denominator));
+    numerator = numerator / gcd;
+}
+
+	private int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
     }
     return a;
 }
